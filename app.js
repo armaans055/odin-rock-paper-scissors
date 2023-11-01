@@ -1,6 +1,5 @@
 // Requirements: Functions to make random guesses for the computer, and those guesses turn into a choice
-// let play = prompt("What is your choice player? rock, paper, or scissors?")
-// let playerChoice = play.toLowerCase()
+
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random()*3)+1
     if(compChoice === 1){
@@ -30,7 +29,21 @@ function findWinner(playerChoice, computerChoice){
 }
 
 
-const playerChoice = prompt("make  a choice")
-const computerChoice = getComputerChoice()
-console.log(findWinner(playerChoice, computerChoice))
+let gameLength = 0
+let playerScore = 0
+let computerScore = 0
+while(gameLength < 5){
+    let play = prompt("What is your choice player? rock, paper, or scissors?")
+    let playerChoice = play.toLowerCase()
+    let computerChoice = getComputerChoice()
+    let outcome = findWinner(playerChoice, computerChoice)
+    if (outcome === "You win!"){
+        gameLength++
+        playerScore++
+    }else if (outcome === "You lose!"){
+        gameLength++
+        computerScore++
+    }
+    console.log(`${outcome} you have played ${gameLength} rounds the score is Player:${playerScore} Computer:${computerScore}`)
+}
 
