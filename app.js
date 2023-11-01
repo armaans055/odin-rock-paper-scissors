@@ -35,15 +35,19 @@ let computerScore = 0
 while(gameLength < 5){
     let play = prompt("What is your choice player? rock, paper, or scissors?")
     let playerChoice = play.toLowerCase()
-    let computerChoice = getComputerChoice()
-    let outcome = findWinner(playerChoice, computerChoice)
-    if (outcome === "You win!"){
-        gameLength++
-        playerScore++
-    }else if (outcome === "You lose!"){
-        gameLength++
-        computerScore++
-    }
+    if(playerChoice === "rock" || playerChoice === "paper" || playerChoice ==="scissors"){
+        let computerChoice = getComputerChoice()
+        let outcome = findWinner(playerChoice, computerChoice)
+        if (outcome === "You win!"){
+            gameLength++
+            playerScore++
+        }else if (outcome === "You lose!"){
+            gameLength++
+            computerScore++
+        }
     console.log(`${outcome} you have played ${gameLength} rounds the score is Player:${playerScore} Computer:${computerScore}`)
+}else{
+    break;
+}   
 }
 
