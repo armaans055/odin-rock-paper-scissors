@@ -1,0 +1,25 @@
+*{
+    background-color: #ECE3CE;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding-top: 12em;
+    font-family: 'VT323'
+}
+
+h1{
+    border-radius: 2em;
+    border: thick solid #4F6F52;
+    padding: .3em;
+}
+.head{
+    display: flex;
+    justify-content: center;
+}
+
