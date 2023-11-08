@@ -54,6 +54,7 @@ let playerChoice = 0
 const rockButton = document.querySelector('.rockbtn')
 const paperButton = document.querySelector('.paperbtn')
 const scissorsButton = document.querySelector('.scissorbtn')
+const winnerDisplay = document.querySelector('.winner')
 
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random()*3)+1
@@ -84,14 +85,19 @@ function findWinner(playerChoice, computerChoice){
 
 rockButton.addEventListener("click", ()=>{
     let playerChoice = 1;
-    console.log(findWinner(playerChoice, getComputerChoice()))
+    let roundWinner = findWinner(playerChoice, getComputerChoice())
+    winnerDisplay.textContent = roundWinner
 })
 paperButton.addEventListener("click" , () => {
     let playerChoice = 2;
-    console.log(findWinner(playerChoice, getComputerChoice()))
+    let roundWinner = findWinner(playerChoice, getComputerChoice())
+    winnerDisplay.textContent = roundWinner
 })
 scissorsButton.addEventListener("click" , () => {
     let playerChoice = 3;
-    console.log(findWinner(playerChoice, getComputerChoice()))
+    let roundWinner = findWinner(playerChoice, getComputerChoice())
+    winnerDisplay.textContent = roundWinner
+    winnerDisplay.style.fontSize = "x-large";
 })
+
 
