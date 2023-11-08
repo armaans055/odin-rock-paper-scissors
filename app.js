@@ -50,9 +50,48 @@
 //     break;
 // }   
 // }
-
+let playerChoice = 0
 const rockButton = document.querySelector('.rockbtn')
+const paperButton = document.querySelector('.paperbtn')
+const scissorsButton = document.querySelector('.scissorbtn')
 
-rockButton.addEventListener("click", (c)=>{
-    console.log(c)
+function getComputerChoice(){
+    let compChoice = Math.floor(Math.random()*3)+1
+    if(compChoice === 1){
+        return 1
+    }else if(compChoice === 2){
+        return 2
+    }else{
+        return 3
+    }
+}
+
+function findWinner(playerChoice, computerChoice){
+   if(playerChoice === computerChoice){
+    return "Draw"
+   }else if (playerChoice === 1 && computerChoice === 2){
+    return "You lose!"
+   }else if (playerChoice === 2 && computerChoice === 3){
+    return "You lose!"
+   }else if (playerChoice === 3 && computerChoice === 1){
+    return "You lose!"
+   }else{
+    return "You win!"
+   }
+
+}
+
+
+rockButton.addEventListener("click", ()=>{
+    let playerChoice = 1;
+    console.log(findWinner(playerChoice, getComputerChoice()))
 })
+paperButton.addEventListener("click" , () => {
+    let playerChoice = 2;
+    console.log(findWinner(playerChoice, getComputerChoice()))
+})
+scissorsButton.addEventListener("click" , () => {
+    let playerChoice = 3;
+    console.log(findWinner(playerChoice, getComputerChoice()))
+})
+
