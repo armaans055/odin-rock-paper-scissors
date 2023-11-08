@@ -51,3 +51,8 @@
 // }   
 // }
 
+const rockButton = document.querySelector('.rockbtn')
+
+rockButton.addEventListener("click", (c)=>{
+    console.log(c)
+})

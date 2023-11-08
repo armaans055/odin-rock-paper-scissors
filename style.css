@@ -63,10 +63,13 @@ h1{
 }
 
 .rockbtn:hover{
-    border-color: blue;
+    border-color: #86A789;
+    border-width: 10px;
+    margin: -5px;
     transition: 1s;
 }
 
 .rock,.scissors,.paper{
     border-radius: 3em;
+    margin: -1.5px;
 }
