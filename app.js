@@ -71,9 +71,9 @@ function displayWinner(outcome){
     if(outcome === 0){
         return "Draw"
     }else if (outcome === 1){
+        return "You lose!"
+    }else if (outcome === 2){
         return "You win!"
-    }else{
-        return "You lose"
     }
 }
 
@@ -83,18 +83,18 @@ function displayComputerChoice(computerChoice){
     }else if(computerChoice === 2){
         return "Computer chose paper"
     }else if(computerChoice === 3){
-        return "Computer chose rock"
+        return "Computer chose scissors"
     }
 }
 
 rockButton.addEventListener("click", ()=>{
-    let playerChoice = 1;
+    playerChoice = 1;
     let computerChoice = getComputerChoice()
     let outcome = findWinner(playerChoice, computerChoice)
-        if(outcome === 2){
-            playerScore++
-        }else if(outcome === 1){
+        if(outcome === 1){
             computerScore++
+        }else if(outcome === 2){
+            playerScore++
         }
     let winnerz = displayWinner(outcome)
     let compyChoice = displayComputerChoice(computerChoice)
@@ -104,13 +104,13 @@ rockButton.addEventListener("click", ()=>{
 
 })
 paperButton.addEventListener("click" , () => {
-    let playerChoice = 2;
+    playerChoice = 2;
     let computerChoice = getComputerChoice()
     let outcome = findWinner(playerChoice, computerChoice)
-    if(outcome === 2){
-        playerScore++
-    }else if(outcome === 1){
+    if(outcome === 1){
         computerScore++
+    }else if(outcome === 2){
+        playerScore++
     }
     let winnerz = displayWinner(outcome)
     let compyChoice = displayComputerChoice(computerChoice)
@@ -119,19 +119,23 @@ paperButton.addEventListener("click" , () => {
     gameEnder(computerScore, playerScore)
 })
 scissorsButton.addEventListener("click" , () => {
-    let playerChoice = 3;
+    
+    playerChoice = 3;
     let computerChoice = getComputerChoice()
     let outcome = findWinner(playerChoice, computerChoice)
-    if(outcome === 2){
-        playerScore++
-    }else if(outcome === 1){
+    if(outcome === 1){
         computerScore++
+    }else if(outcome === 2){
+        playerScore++
     }
     let winnerz = displayWinner(outcome)
     let compyChoice = displayComputerChoice(computerChoice)
     winnerDisplay.style.fontSize = "30px"
     winnerDisplay.textContent = `${compyChoice} ${winnerz} Your score is ${playerScore} and the computer score is ${computerScore}`
     gameEnder(computerScore, playerScore)
+    console.log(playerChoice)
+    console.log(computerChoice)
+    console.log(outcome)
 })
 
 
