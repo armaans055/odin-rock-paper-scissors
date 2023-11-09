@@ -9,6 +9,19 @@
     gap: 2em;
 }
 
+button{
+    border-radius : 8px;
+    border: thick solid darkgreen;
+    font-family: 'VT323';
+    padding: 1px;
+}
+
+button:hover{
+    border-color: #86A789;
+    border-width: 8px;
+    transition: .2s;
+}
+
 body{
     justify-content: space-between;
     align-items: center;
@@ -39,12 +52,14 @@ h1{
 .paperbtn{
     border-radius: 3em;
     border: thick solid #3A4D39;
+
 }
 
 .rockbtn
 ,.scissorbtn{
     border-radius: 3em;
     border: thick solid #3A4D39;
+
 }
 
 .scissorbtn{
@@ -59,7 +74,7 @@ h1{
 }
 
 .winner{
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     display: flex;
     justify-content: center;
 }

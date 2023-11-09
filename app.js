@@ -1,50 +1,10 @@
-// // // Requirements: Functions to make random guesses for the computer, and those guesses turn into a choice
-
-
-
-// // // A function that captures and compare the player choice to the computer choice using if and else statements
-
-// // function findWinner(playerChoice, computerChoice){
-// //    if(playerChoice === computerChoice){
-// //     return "Draw"
-// //    }else if (playerChoice === "rock" && computerChoice === "paper"){
-// //     return "You lose!"
-// //    }else if (playerChoice === "paper" && computerChoice === "scissors"){
-// //     return "You lose!"
-// //    }else if (playerChoice === "scissors" && computerChoice === "rock"){
-// //     return "You lose!"
-// //    }else{
-// //     return "You win!"
-// //    }
-
-// // }
-
-
-// // let gameLength = 0
-// // let playerScore = 0
-// // let computerScore = 0
-// // while(gameLength < 5){
-// //     let play = prompt("What is your choice player? rock, paper, or scissors?")
-// //     let playerChoice = play.toLowerCase()
-// //     if(playerChoice === "rock" || playerChoice === "paper" || playerChoice ==="scissors"){
-// //         let computerChoice = getComputerChoice()
-// //         let outcome = findWinner(playerChoice, computerChoice)
-// //         if (outcome === "You win!"){
-// //             gameLength++
-// //             playerScore++
-// //         }else if (outcome === "You lose!"){
-// //             gameLength++
-// //             computerScore++
-// //         }
-// //     console.log(`${outcome} you have played ${gameLength} rounds the score is Player:${playerScore} Computer:${computerScore}`)
-// // }else{
-// //     break;
-// // }   
-// // }
 const rockButton = document.querySelector('.rockbtn')
 const paperButton = document.querySelector('.paperbtn')
 const scissorsButton = document.querySelector('.scissorbtn')
 const winnerDisplay = document.querySelector('.winner')
+let playerScore = 0;
+let computerScore = 0;
+let gameOver = false;
 
 function getComputerChoice(){
     let compChoice = Math.floor(Math.random()*3)+1
@@ -72,14 +32,22 @@ function findWinner(playerChoice, computerChoice){
 
 }
 
+function endGame(){
+    gameOver = true;
+    playerScore = 0;
+    computerScore = 0;
+
+}
 function gameEnder(computerScore, playerScore){
     if(computerScore === 5 ){
         winnerDisplay.textContent = "Game over you lose..."
-        winnerDisplay.style.fontSize = "x-large";
+        winnerDisplay.style.fontSize = "30px";
+        endGame()
         makeButton()
     }else if(playerScore === 5){
         winnerDisplay.textContent = "You wonn!!"
-        winnerDisplay.style.fontSize = "x-large";
+        winnerDisplay.style.fontSize = "30px";
+        endGame()
         makeButton()
     }
 }
@@ -89,9 +57,12 @@ function makeButton(){
     newButton.appendChild(innerTexs)
     const element = document.querySelector('.winner')
     element.appendChild(newButton)
+    newButton.style.fontSize = "20px";
     newButton.addEventListener("click", ()=>{
-        let playerScore = 0;
-        let computerScore = 0;
+        playerScore = 0;
+        computerScore = 0;
+        winnerDisplay.textContent = `Your score is ${playerScore} and the computer score is ${computerScore}`
+
     })
 
 }
@@ -106,32 +77,7 @@ function displayWinner(outcome){
     }
 }
 
-
-
-// rockButton.addEventListener("click", ()=>{
-//     let playerChoice = 1;
-//     let roundWinner = findWinner(playerChoice, getComputerChoice())
-//     winnerDisplay.textContent = roundWinner
-//     winnerDisplay.style.fontSize = "x-large";
-// })
-// paperButton.addEventListener("click" , () => {
-//     let playerChoice = 2;
-//     let roundWinner = findWinner(playerChoice, getComputerChoice())
-//     winnerDisplay.textContent = roundWinner
-//     winnerDisplay.style.fontSize = "x-large";
-// })
-// scissorsButton.addEventListener("click" , () => {
-//     let playerChoice = 3;
-//     let roundWinner = findWinner(playerChoice, getComputerChoice())
-//     winnerDisplay.textContent = roundWinner
-//     winnerDisplay.style.fontSize = "x-large";
-// })
-
-// 0=draw , 1=player win, 2=playerloss
-
-let playerScore = 0;
-let computerScore = 0;
- rockButton.addEventListener("click", ()=>{
+rockButton.addEventListener("click", ()=>{
     let playerChoice = 1;
     let outcome = findWinner(playerChoice, getComputerChoice())
         if(outcome === 1){
@@ -140,6 +86,7 @@ let computerScore = 0;
             computerScore++
         }
     let winnerz = displayWinner(outcome)
+    winnerDisplay.style.fontSize = "20px"
     winnerDisplay.textContent = `${winnerz} Your score is ${playerScore} and the computer score is ${computerScore}`
     gameEnder(computerScore, playerScore)
 
@@ -153,6 +100,7 @@ paperButton.addEventListener("click" , () => {
         computerScore++
     }
     let winnerz = displayWinner(outcome)
+    winnerDisplay.style.fontSize = "20px"
     winnerDisplay.textContent = `${winnerz} Your score is ${playerScore} and the computer score is ${computerScore}`
     gameEnder(computerScore, playerScore)
 })
@@ -165,7 +113,8 @@ scissorsButton.addEventListener("click" , () => {
         computerScore++
     }
     let winnerz = displayWinner(outcome)
-    winnerDisplay.textContent = `${winnerz} Your score is ${playerScore} and the computer score is ${computerScore}`
+    winnerDisplay.style.fontSize = "30px"
+    winnerDisplay.textContent = `${winnerz}! Your score is ${playerScore} and the computer score is ${computerScore}`
     gameEnder(computerScore, playerScore)
 })
 
