@@ -69,7 +69,7 @@ function makeButton(){
 
 function displayWinner(outcome){
     if(outcome === 0){
-        return "Draw"
+        return ", its a Draw"
     }else if (outcome === 1){
         return "You lose!"
     }else if (outcome === 2){
@@ -133,10 +133,4 @@ scissorsButton.addEventListener("click" , () => {
     winnerDisplay.style.fontSize = "30px"
     winnerDisplay.textContent = `${compyChoice} ${winnerz} Your score is ${playerScore} and the computer score is ${computerScore}`
     gameEnder(computerScore, playerScore)
-    console.log(playerChoice)
-    console.log(computerChoice)
-    console.log(outcome)
 })
-
-
-
